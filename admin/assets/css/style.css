@@ -1,0 +1,809 @@
+/* ======Google fonts=======*/
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;0,700;1,300&display=swap');
+
+  *{
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root{
+    --blue: #2a2185;
+    --white: #fff;
+    --gray:#f5f5f5;
+    --black1:#222;
+    --black2:#999;
+  }
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: .5s;
+    overflow: hidden;
+}
+.navigation.active{
+    width: 80px;
+}
+.navigation ul{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background: var(--white);
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    color: var(--blue);
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    padding: 0 20px;
+    min-height: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon1 img {
+    position: relative;
+    display: block;
+    padding: 0;
+    min-height: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 22px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigation ul li a .title1{
+    position: relative;
+    display: block;
+    padding: 0 22px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top:-50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom:-50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+
+/* ==============================Main=============================== */
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+.main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle{
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+}
+
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2rem;
+
+}
+
+.user{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================== Cards ============================== */
+
+.cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card{
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 10px 50px rgba(0,0,0,0);
+}
+
+.cardBox .card .numbers{
+    position: relative;
+    font-weight: 300;
+    font-size: 2.5rem;
+    color: var(--black2);
+}
+.cardBox .card .cardName{
+    color:var(--black2);
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx{
+    font-size: 3.5rem;
+    margin-top: 5px;
+    color: var(--black2);
+}
+
+.cardBox .card:hover{
+    background: var(--blue);
+}
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx{
+    color: var(--white);
+}
+/* =============================  Table ===================================== */
+
+
+.details{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+.table-format{
+    margin-top: 0;
+}
+.details .recentFile{
+    position: relative;
+    display: grid;
+    min-height: fit-content;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.details .cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: fit-content;
+}
+
+.cardHeader h2{
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.cardHeader .btn{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.details table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td{
+    font-weight: 600;
+}
+.details .recentFile table tr{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details .recentFile table tr:last-child{
+    border-bottom: none;
+}
+.details .recentFile table tbody tr:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details .recentFile table tr td{
+    padding: 10px;
+}
+
+.details .recentFile table tr td:last-child{
+    text-align: end;
+}
+
+.details .recentFile table tr td:nth-child(2){
+    text-align: end;
+}
+
+.details .recentFile table tr td:nth-child(3){
+    text-align: center;
+}
+
+
+.details1{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+.details1 .recentOrders{
+    position: relative;
+    display: grid;
+    min-height: 100px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+    border-radius: 20px;
+}
+.details1 .recentFile1{
+    position: relative;
+    display: grid;
+    min-height: 100px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.details1 .cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.details1 table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details1 table thead td{
+    font-weight: 600;
+}
+.details1 .recentFile table tr{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details1 .recentFile table tr:last-child{
+    border-bottom: none;
+}
+.details1 .recentFile table tbody tr:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details1 .recentFile table tr td{
+    padding: 10px;
+}
+
+.details1 .recentFile table tr td:last-child{
+    text-align: end;
+}
+
+.details1 .recentFile table tr td:nth-child(2){
+    text-align: end;
+}
+
+.details1 .recentFile table tr td:nth-child(3){
+    text-align: center;
+}
+
+.status.completed{
+    padding: 2px 4px;
+    background:#04f724;
+    color: var(--black1);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.pending{
+    padding: 2px 15px;
+    background: rgb(245, 5, 5);
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===============================style for department list============================ */
+.recentdept{
+    position: relative;
+    display: grid;
+    min-height: 100px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+/* ===============================style for roles list============================ */
+.recentroles{
+    position: relative;
+    display: grid;
+    min-height: 100px;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    overflow-x: auto;
+}
+
+.container2{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    background-color:#fff;
+    box-shadow: 0 5px rgba(0,0,0,0,1);
+}
+
+.container2 header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+ .container2 header::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color:#DD2F6E ;
+}
+
+.container2 form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 150px;
+    background-color: #fff;
+}
+.container2 form .details{
+    margin-top: 30px;
+}
+.container2 form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.container2 form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.container2 form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #DD2F6E;
+}
+
+form .fields .input-field1{
+    display: flex;
+    width: calc(100% / 1);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field1 label{
+    font-size: 12px;
+    font-weight: 500px;
+    color: #2e2e2e;
+}
+
+.input-field1 input{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 9px;
+    height: 42px;
+    margin: 8px;
+}
+
+/* ===================================style for profile=========================== */
+.profile{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-left: 30%;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.user_details{
+    position: relative;
+    padding: 30px;
+    width: 350px;
+    height: 150px;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-top: 20px;
+    background: var(--black2);    
+}
+
+/* ===============================style for create user ============================ */
+
+.container1{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    background-color:#fff;
+    box-shadow: 0 5px rgba(0,0,0,0,1);
+}
+
+.container1 header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+ .container1 header::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color:#DD2F6E ;
+}
+
+.container1 form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 490px;
+    background-color: #fff;
+}
+.container1 form .details{
+    margin-top: 30px;
+}
+.container1 form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.container1 form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 2 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label{
+    font-size: 12px;
+    font-weight: 500px;
+    color: #2e2e2e;
+}
+
+.input-field input{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 9px;
+    height: 42px;
+    margin: 8px;
+}
+.input-field select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px;
+}
+
+.input-field input:is(:focus, :valid){
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0,13);
+}
+
+.input-field input[type="date"]{
+
+    color: #707070;
+}
+
+.input-field input[type="date"]:valid{
+
+    color: #333;
+}
+
+.input-field input[type="radio"]:valid{
+    
+    color: #333;
+}
+
+.container1 form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #DD2F6E;
+}
+
+form button:hover{
+    background-color: #DD2F6E;
+}
+
+form button i{
+     margin: 0 6px;
+}
+
+/* ========================= responsive Design ======================== */
+
+@media( max-width:991px){
+    .navigation{
+        left: -300px;
+    }
+    .navigation.active{
+        width: 300px;
+        left: 0;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main.active{
+        left: 300px;
+    }
+    .cardBox{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width:768px) {
+    .details{
+        grid-template-columns: 1fr;
+    }
+    .details1{
+        grid-template-columns: 1fr;
+    }
+    .recentFile{
+        overflow-x: scroll;
+    }
+    .status.completed{
+        white-space: nowrap;
+    }
+}
+
+@media(max-width:480px){
+    .cardBox{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+/* ===============================style for create user ============================ */
+
+@media (max-width:750px) {
+    
+    form .fields .input-field{
+        width: calc(100%/2 - 15px);
+    }
+    .recentFile{
+        overflow-x: scroll;
+    } 
+    .container1{
+        padding: 0px;
+        margin: 0px;
+    }
+
+}
+
+@media (max-width:550px) {
+    form .fields .input-field{
+        width:100%;
+    }
+    .profile{
+        margin-left: 10%;
+    }
+    .user_details{
+        margin-left: 10%;
+    }
+}
+
+
+@media (max-width:450px) {
+    .profile{
+        margin-left: 10%;
+        width: 200px;
+        height: 200px;
+    }
+    .user_details{
+        margin-left: 0;
+        width: fit-content;
+    }
+    .recentroles{
+        overflow-x: scroll;
+    }
+}
